@@ -1,46 +1,50 @@
-# Getting Started with Create React App
+# Documentação do App.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Olá avaliadores, irei guia-los a como instalar e executar o projeto.
+Tambem irei apresentar detalhadamente as tecnologias que utilizei e o porque.
 
-## Available Scripts
+## Instalação, execução, testes via scripts
 
-In the project directory, you can run:
+Dentro do diretório AskApp execute os seguintes comandos:
+
+### `yarn install`
+
+Esse comando irá instalar todas as dependencias do projeto em sua maquina.
 
 ### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Após a instalação das dependecias da aplição, rode mais esse comando, para a executar a aplicação
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Tecnologias utilizadas.
 
-### `yarn test`
+## 1. Framework React JS
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Falando em arquitetura de pastas, segui o que considero o mais ideal, todos os projetos que desenvolvo, separo bem as coisas, porque acho que fica melhor organizado, e acredito que seja mais rapida a minha fixação, caso precise criar um novo aquivo, ou buscar um que ja exista.
 
-### `yarn build`
+Utiizei como Gerenciamento de estado a Context API do próprio React, por ser nativa a implementação ser menos verbosa que um redux por exemplo.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 2. Material UI
+Como um requisito obrigatório foi utilizado o Material UI, e gosto da ideia que ele traz para acelerar o desenvolvimento, utilizo muito o Material no dia a dia então não houve complicações com a implementação orientada a ele.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 3. Figma
+Estou disponibilizando essa url https://www.figma.com/file/L937Fkn4n03GQWpJclxqch/AskApp?node-id=0%3A1 , para complementar a avaliação, antes de sair codando, prototipei de uma forma simples a experiencia de usuario.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 4. Axios
 
-### `yarn eject`
+Para realizar as requisições escolhi o axios, separei em uma pasta hooks a configuração e criação do useAxios em uma pasta services onde contem a configuração com a declaração da chamada ao end-point, acredito que assim é mais organizado de se fazer.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 5. Formik
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Não era um requisito obirgatório, e para uma aplicação do do nivel de complexidade dessa eu não usaria, mas como seria um diferencial na avaliação, optei por usa-lo para me apriximar mais da realidade do time de desenvolvimento
+## 6. Notistack
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Para apresentar feedbacks para usuario, para a deleção de um relatório, ou mensagens de erro na aplição como um todo, optei por usar essa biblioteca, por ser extremamente simples de usar e da um visual bem agradavel na interface.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 7. ESLINT
 
-## Learn More
+Configurei o eslint para ter uma style code e garantir padrões para o dev team, garantir uma estrutura de e estilo de escrita de padronizada e organizada.
+## 8. Git Hooks
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Para melhorar o workflow e garantir uma qualidade de codigo maior, utilizei o husky para garantir que não suba nada que esta sendo declarado e não usado, verificar se as alterações estão respeitando o eslint, testes que por algum motivo quebraram e passou despercebido no desenvolvimento, nada mais são que rotinas que são executadas como um comando git como "commit" ou "push" é invocado no terminal.
+## 9. Unit test
+Tambem não era um requisito obrigatório, mas achei interessante escrever pelo menos alguns, para complementar a avaliação e mostrar conhecimento no jest, devido ao tempo curto não foi possivel cobrir a aplicação com um percentual maior.

@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter } from 'react-router-dom'
+import { SnackbarProvider } from 'notistack'
+
+import { AppRoutes } from 'routes/appRoutes'
+import { Layout } from 'components'
+import { CssBaseline, ThemeProvider } from '@mui/material'
+import { ReportContextProvider } from 'contexts/Report.context'
+import { theme } from 'styles/theme'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <SnackbarProvider maxSnack={3}>
+        <ReportContextProvider>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Layout>
+              <AppRoutes />
+            </Layout>
+          </ThemeProvider>
+        </ReportContextProvider>
+      </SnackbarProvider>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
