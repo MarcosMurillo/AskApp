@@ -1,11 +1,46 @@
 import { useState } from 'react'
-import { Stack, Grid, IconButton, Tooltip, Typography } from '@mui/material'
+import {
+  Stack,
+  Grid,
+  IconButton,
+  Tooltip,
+  Typography,
+  Box
+} from '@mui/material'
 import { useParams, useNavigate } from 'react-router-dom'
 import { FieldArray, Form, Formik } from 'formik'
 
 import { Question, ConfirmModal } from 'components'
 import { useReportContext } from 'hooks/useReportContext'
 import DeleteIcon from '@mui/icons-material/Delete'
+import { useTheme } from '@mui/material'
+
+interface LegendProps {
+  color: boolean
+  text: string
+}
+
+const Legend = ({ color, text }: LegendProps) => {
+  const theme = useTheme()
+
+  const shapeStyles = {
+    backgroundColor: color ? theme.colors.blue[50] : theme.colors.red[50],
+    borderRadius: '50%',
+    width: 40,
+    height: 40
+  }
+  return (
+    <Stack
+      direction="row"
+      spacing={1}
+      justifyContent="center"
+      alignItems="center"
+    >
+      <Box component="span" sx={{ ...shapeStyles }} />
+      <Typography variant="subtitle2">{text}</Typography>
+    </Stack>
+  )
+}
 
 export const ReportPage = () => {
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false)
@@ -36,6 +71,15 @@ export const ReportPage = () => {
             <DeleteIcon />
           </IconButton>
         </Tooltip>
+      </Stack>
+      <Stack
+        direction="row"
+        alignItems="center"
+        justifyContent="center"
+        spacing={2}
+      >
+        <Legend color={true} text="Correct Answer" />
+        <Legend color={false} text="Incorrect Answer" />
       </Stack>
       <Formik
         initialValues={{ questions: reports[Number(id)].data }}
