@@ -24,7 +24,7 @@
     "prepare": "husky install",
     "test:watch": "yarn test --watch",
     "eject": "react-scripts eject",
-    "lint": "eslint src --max-warnings=1",
+    "lint": "eslint src --max-warnings=2",
     "cover": "yarn test --coverage --watchAll=false"
   },
   "eslintConfig": {
@@ -35,7 +35,7 @@
   },
   "lint-staged": {
     "src/**": [
-      "yarn lint --fix --no-ignore",
+      "yarn lint --fix",
       "yarn test --bail --watchAll=false --findRelatedTests"
     ]
   },
